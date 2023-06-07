@@ -1,0 +1,98 @@
+{
+  "name": "retail-demo-store",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "layer0:start": "concurrently \"npx webpack --watch --config layer0/webpack.layer0.config.js\" \"npx layer0 run --verbose\"",
+    "layer0:start:cache": "concurrently \"npx webpack --watch --config layer0/webpack.layer0.config.js\" \"npx layer0 run --cache\"",
+    "layer0:start:prod": "npx layer0 run --production",
+    "layer0:build": "npx webpack --progress --config layer0/webpack.layer0.config.js && npx layer0 build",
+    "layer0:deploy": "npx layer0 deploy --skip-build --site=layer0-aws-store-example --team=layer0-docs",
+    "layer0:app:build": "npm run build && npm run layer0:build",
+    "layer0:app:build:deploy": "npm run build && npm run layer0:build && npm run layer0:deploy",
+    "layer0:build:deploy": "npm run layer0:build && npm run layer0:deploy",
+    "layer0:update": "npm i -D @layer0/cli@latest && npm i @layer0/core@latest @layer0/prefetch@latest @layer0/devtools@latest"
+  },
+  "dependencies": {
+    "@mparticle/web-sdk": "^2.17.0",
+    "@optimizely/optimizely-sdk": "^4.9.2",
+    "amplitude-js": "^5.8.0",
+    "aws-amplify": "^3.0.23",
+    "aws-amplify-vue": "^2.1.2",
+    "axios": "^0.21.4",
+    "mapbox-gl": "^1.12.0",
+    "register-service-worker": "^1.7.2",
+    "sweetalert": "^2.1.2",
+    "uuid": "^7.0.3",
+    "vue": "^2.7.10",
+    "vue-agile": "^1.1.3",
+    "vue-gtag": "^1.16.1",
+    "vue-router": "^3.6.3",
+    "vue-the-mask": "^0.11.1",
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^3.2.0",
+    "workbox-webpack-plugin": "^6.5.4"
+  },
+  "devDependencies": {
+    "@layer0/cli": "^4.18.11",
+    "@layer0/core": "^4.18.11",
+    "@layer0/devtools": "^4.18.11",
+    "@layer0/prefetch": "^4.18.11",
+    "@vue/cli-plugin-babel": "^4.5.19",
+    "@vue/cli-plugin-eslint": "^4.5.19",
+    "@vue/cli-service": "^4.5.19",
+    "babel-eslint": "^10.1.0",
+    "concurrently": "^5.3.0",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "is-buffer": "^2.0.4",
+    "lodash": "^4.17.21",
+    "webpack": "^4.46.0",
+    "webpack-bundle-analyzer": "^4.6.1",
+    "webpack-cli": "^4.10.0"
+  },
+  "resolutions": {
+    "ansi-regex": "4.1.1",
+    "axios": "0.21.4",
+    "glob-parent": "5.1.2",
+    "immer": "9.0.15",
+    "minimist": "1.2.6",
+    "nth-check": "2.0.1",
+    "node-forge": "1.3.0",
+    "parse-path": "5.0.0",
+    "parse-url": "8.1.0",
+    "simple-git": "3.5.0",
+    "webpack-bundle-analyzer": "4.6.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-console": "off"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
