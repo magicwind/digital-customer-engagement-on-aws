@@ -7,11 +7,18 @@ Guidance for digital customer engagement on AWS
 
 A demo web retail store for demo purpose with RudderStack JavaScript SDK integrated.
 
-Modify environment variables and set RudderStack Data Plane URL and Source Write Key
+Modify environment variables in .env file and set RudderStack Data Plane URL and Source Write Key
+
+First execute follwing commands:
 ```
 cd 1-DemoSource/JavaScriptSource/retail-demo-store
 cp .env.template .env
 ```
+Then set following two variables in .env:
+
+VUE_APP_RUDDERSTACK_WRITE_KEY=
+
+VUE_APP_RUDDERSTACK_URL=
 
 ### 2-DataCollection/FirehoseDestination
 
