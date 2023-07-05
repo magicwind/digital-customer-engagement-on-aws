@@ -10,7 +10,7 @@ conn_id_name = 'redshift_default'
 
 # Default settings applied to all tasks
 default_args = {
-    'owner': 'fengxuu',
+    'owner': 'airflow',
     'start_date': datetime(2023, 6, 1, tzinfo=pendulum.timezone("Asia/Shanghai")),
     'retries': 0,
     'retry_delay': timedelta(minutes=5)
